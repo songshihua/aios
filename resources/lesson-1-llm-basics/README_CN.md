@@ -109,6 +109,7 @@ class Embedding(nn.Module):
 - Embedding 本质上是一个"查表"操作，不涉及矩阵乘法
 - 每个 token ID 对应一个固定的向量（训练时学习得到）
 - 输出形状从 `(batch, seq_len)` 变为 `(batch, seq_len, hidden_size)`
+- 可视化网站：https://bbycroft.net/llm
 
 ---
 
@@ -346,7 +347,7 @@ Q: (batch, seq_len, hidden_size)
    ──transpose──► (batch, num_heads, seq_len, head_dim)
 ```
 
-**Grouped Query Attention (GQA)**：
+**Grouped Query Attention (GQA)分组注意力**：
 
 现代 LLM（如 Llama2-70B、Qwen3）使用 GQA 来减少 KV cache 大小：
 
@@ -1630,5 +1631,4 @@ count_parameters(model)
 - [The Illustrated Transformer](https://jalammar.github.io/illustrated-transformer/)
 - [Attention Is All You Need](https://arxiv.org/abs/1706.03762)
 - [The Illustrated GPT-2](https://jalammar.github.io/illustrated-gpt2/)
-
 
